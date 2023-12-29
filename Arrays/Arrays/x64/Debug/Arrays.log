@@ -1,0 +1,4 @@
+﻿  Arrays.cpp
+  pointers.cpp
+  Generating Code...
+C:\Development\C-C++\Arrays\Arrays\Arrays.cpp(76): error C4716: 'nonMain': must return a value

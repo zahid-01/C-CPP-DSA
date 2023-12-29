@@ -1,0 +1,4 @@
+﻿  TalyorSeries.cpp
+C:\Development\C-C++\TaylorSeries\TaylorSeries\TalyorSeries.cpp(15,33): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Development\C-C++\TaylorSeries\TaylorSeries\TalyorSeries.cpp(18,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  TaylorSeries.vcxproj -> C:\Development\C-C++\TaylorSeries\x64\Debug\TaylorSeries.exe
