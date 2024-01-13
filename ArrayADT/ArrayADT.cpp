@@ -5,7 +5,7 @@ using namespace std;
 
 struct ADTArray
 {
-	int A[10];
+	int A[11];
 	int size;
 	int length;
 };
@@ -66,17 +66,17 @@ int lSearchOpt(ADTArray *arr, int el)
 	return -1;
 }
 
-int BSearch(ADTArray arr, int el, int p, int q)
+int BSearch(int arr[], int el, int p, int q)
 {
 	if (p > q)
 		return -1;
 
 	int mid = (p + q) / 2;
 
-	if (arr.A[mid] == el)
+	if (arr[mid] == el)
 		return mid;
 
-	if (arr.A[mid] > el)
+	if (arr[mid] > el)
 		return BSearch(arr, el, p, mid - 1);
 	else
 		return BSearch(arr, el, mid + 1, q);
@@ -84,7 +84,7 @@ int BSearch(ADTArray arr, int el, int p, int q)
 
 int main()
 {
-	ADTArray Arr = {{0, 1, 2, 3, 4, 5, 6, 7, 8, 2000}, 10, 10};
+	ADTArray Arr = {{0, 1, 2, 3, 4, 5, 6, 7, 8, 2000, 3000}, 11, 11};
 	display(Arr);
 
 	// insert(&Arr, 200, 4);
@@ -94,6 +94,6 @@ int main()
 
 	// lSearchOpt(&Arr, 1);
 
-	cout << BSearch(Arr, 20000, 0, 9);
+	cout << BSearch(Arr.A, 3000, 0, 10);
 	// display(Arr);
 };
