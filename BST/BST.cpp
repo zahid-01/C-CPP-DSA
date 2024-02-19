@@ -30,6 +30,7 @@ public:
   void insert(int data);
   Node *search(int data);
   void inOrderTraversal(Node *root);
+  void deleteNode(int key);
 };
 
 void BST::insert(int data)
@@ -95,6 +96,46 @@ void BST::inOrderTraversal(Node *root)
   inOrderTraversal(root->right);
 }
 
+void BST::deleteNode(int key)
+{
+  Node *currNode = root, *prevNode = nullptr;
+
+  while (currNode)
+  {
+    if (key == currNode->data)
+      break;
+    prevNode = currNode;
+    if (key < currNode->data)
+      currNode = currNode->left;
+    else if (key > currNode->data)
+      currNode = currNode->right;
+  }
+
+  if (!currNode)
+  {
+    cout << "\nNode does not exit." << endl;
+    return;
+  }
+
+  // If node to be deleted is a leaf node.
+  if (!currNode->left && !currNode->right)
+  {
+    if (prevNode->data < currNode->data)
+      prevNode->right = nullptr;
+    else
+      prevNode->left = nullptr;
+
+    delete currNode;
+    return;
+  }
+
+  // If current node has only one child
+  if (!currNode->left ^ !currNode->right)
+  {
+    prevNode->left ?
+  }
+}
+
 int main()
 {
   BST *myBst = new BST(20);
@@ -108,6 +149,11 @@ int main()
   cout << "Search for 26 returned " << myBst->search(26) << endl;
   cout << "Search for 25 returned " << myBst->search(25)->data << endl;
 
+  myBst->inOrderTraversal(myBst->root);
+
+  myBst->deleteNode(10);
+
+  cout << endl;
   myBst->inOrderTraversal(myBst->root);
   return 0;
 }
