@@ -98,8 +98,9 @@ void BST::inOrderTraversal(Node *root)
 
 void BST::deleteNode(int key)
 {
-  Node *currNode = root, *prevNode = nullptr;
+  Node *currNode = root, *currNodePtr = nullptr, *prevNode = nullptr;
 
+  // Get the address to the node to be deleted
   while (currNode)
   {
     if (key == currNode->data)
@@ -132,8 +133,19 @@ void BST::deleteNode(int key)
   // If current node has only one child
   if (!currNode->left ^ !currNode->right)
   {
-    prevNode->left ?
+    if (prevNode->data < currNode->data)
+    {
+      prevNode->right = currNode->left ? currNode->left : currNode->right;
+    }
+    else
+    {
+      prevNode->left = currNode->left ? currNode->left : currNode->right;
+    }
+
+    return;
   }
+
+  // Not a leaf and has more than 2 children
 }
 
 int main()
@@ -151,7 +163,7 @@ int main()
 
   myBst->inOrderTraversal(myBst->root);
 
-  myBst->deleteNode(10);
+  myBst->deleteNode(30);
 
   cout << endl;
   myBst->inOrderTraversal(myBst->root);
